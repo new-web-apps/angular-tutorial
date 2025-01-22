@@ -1,3 +1,9 @@
 Создание приложение angular
 
 sudo docker run --rm --volume ${PWD}:/app --workdir /app --interactive --tty node:20-alpine sh -c "npm install -g @angular/cli && ng new my-app"
+
+Разработка
+
+sudo docker compose up
+
+sudo docker compose down
