@@ -24,3 +24,6 @@ Angular CLI
 
 > npx ng generate interface housinglocation
 
+> npx ng generate service housing --skip-tests
+
+
