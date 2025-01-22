@@ -22,5 +22,5 @@ Angular CLI
 
 > npx ng generate component home
 
-
+> npx ng generate interface housinglocation
 

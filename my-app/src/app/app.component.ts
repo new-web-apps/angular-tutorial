@@ -14,9 +14,6 @@ import { HousingLocationComponent } from './housing-location/housing-location.co
       <section class="content">
         <app-home></app-home>
       </section>
-      <section class="results">
-        <app-housing-location></app-housing-location>
-      </section>
     </main>
   `,
   styleUrl: './app.component.scss'
