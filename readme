@@ -7,3 +7,7 @@ sudo docker run --rm --volume ${PWD}:/app --workdir /app --interactive --tty nod
 sudo docker compose up
 
 sudo docker compose down
+
+обращение к контейнеру
+
+sudo docker compose exec app sh

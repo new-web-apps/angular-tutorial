@@ -4,9 +4,11 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
+  template: `
+     <h1>Hello world!</h1>
+  `,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Tour of Heroes';  
+  title = 'homes';
 }
