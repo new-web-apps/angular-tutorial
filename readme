@@ -11,3 +11,16 @@ sudo docker compose down
 обращение к контейнеру
 
 sudo docker compose exec app sh
+
+Чтобы изменение кода попадали в контейнер через vscode, надо поменять права на папку
+
+sudo chown -R web-apps /home/web-apps/new_25_11/projects/attempt1-angular-compose/my-app
+
+
+
+Angular CLI
+
+> npx ng generate component home
+
+
+
