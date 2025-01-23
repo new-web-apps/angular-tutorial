@@ -8,7 +8,7 @@ import {RouterModule} from '@angular/router';
     <main>
       <header class="brand-name">
         <a [routerLink]="['/']">
-          <img class="brand-logo" src="./assets/logo.jpg" alt="logo" aria-hidden="true" />
+          <img class="brand-logo" src="/logo.jpg" alt="logo" aria-hidden="true" style="width: 50px; height: 50px;" />
         </a>
       </header>
       <section class="content">
