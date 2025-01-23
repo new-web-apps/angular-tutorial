@@ -13,19 +13,22 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  HousingService = inject(HousingService)
+  housingService = inject(HousingService)
   housingLocation: HousingLocation | undefined;
   form = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
   })
-  constructor() {
+ run = async () => {
     const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.HousingService.getHousingLocationById(housingLocationId);
+    this.housingLocation = await this.housingService.getHousingLocationById(housingLocationId);
+  }
+  constructor() {
+    this.run()
   }
   submitApplication() {
-    this.HousingService.submitApplication(
+    this.housingService.submitApplication(
       this.form.value.firstName || '',
       this.form.value.lastName || '',
       this.form.value.email || '',

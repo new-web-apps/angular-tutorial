@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HousingLocation } from '../housinglocation';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import {CommonModule} from '@angular/common';
@@ -13,12 +13,17 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
+  housingService = inject(HousingService)
   
   housingLocationList: HousingLocation[] = [];
   filteredLocationList: HousingLocation[] = [];
 
-  constructor(private housingService: HousingService) {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
+  run = async () => {
+    this.housingLocationList = await this.housingService.getAllHousingLocations();
+    this.search('');
+  }
+  constructor() {
+    this.run();
   }
 
   search(text: string) {
@@ -27,6 +32,5 @@ export class HomeComponent {
     } else {
       this.filteredLocationList = this.housingLocationList.filter(el => (el.name.toLowerCase().includes(text.toLowerCase())))
     }
-
   }
 }
