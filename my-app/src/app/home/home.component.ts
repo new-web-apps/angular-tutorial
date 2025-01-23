@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { HousingLocation } from '../housinglocation';
-import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import {CommonModule} from '@angular/common';
-import { HousingService } from '../housing.service';
+import { Component, inject } from '@angular/core'
+import { HousingLocation } from '../housinglocation'
+import { HousingLocationComponent } from '../housing-location/housing-location.component'
+import { CommonModule } from '@angular/common'
+import { HousingService } from '../housing.service'
 
 @Component({
   selector: 'app-home',
@@ -11,26 +11,29 @@ import { HousingService } from '../housing.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common'
 
   housingService = inject(HousingService)
-  
-  housingLocationList: HousingLocation[] = [];
-  filteredLocationList: HousingLocation[] = [];
+
+  housingLocationList: HousingLocation[] = []
+  filteredLocationList: HousingLocation[] = []
 
   run = async () => {
-    this.housingLocationList = await this.housingService.getAllHousingLocations();
-    this.search('');
+    this.housingLocationList =
+      await this.housingService.getAllHousingLocations()
+    this.search('')
   }
   constructor() {
-    this.run();
+    this.run()
   }
 
   search(text: string) {
     if (!text) {
-      this.filteredLocationList =  this.housingLocationList;
+      this.filteredLocationList = this.housingLocationList
     } else {
-      this.filteredLocationList = this.housingLocationList.filter(el => (el.name.toLowerCase().includes(text.toLowerCase())))
+      this.filteredLocationList = this.housingLocationList.filter((el) =>
+        el.name.toLowerCase().includes(text.toLowerCase())
+      )
     }
   }
 }

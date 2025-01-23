@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HousingService } from '../housing.service';
-import { HousingLocation } from '../housinglocation';
-import {CommonModule} from '@angular/common';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { Component, inject } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { HousingService } from '../housing.service'
+import { HousingLocation } from '../housinglocation'
+import { CommonModule } from '@angular/common'
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-details',
@@ -12,17 +12,18 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent {
-  route: ActivatedRoute = inject(ActivatedRoute);
+  route: ActivatedRoute = inject(ActivatedRoute)
   housingService = inject(HousingService)
-  housingLocation: HousingLocation | undefined;
+  housingLocation: HousingLocation | undefined
   form = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    email: new FormControl(''),
+    email: new FormControl('')
   })
- run = async () => {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = await this.housingService.getHousingLocationById(housingLocationId);
+  run = async () => {
+    const housingLocationId = Number(this.route.snapshot.params['id'])
+    this.housingLocation =
+      await this.housingService.getHousingLocationById(housingLocationId)
   }
   constructor() {
     this.run()
@@ -31,7 +32,7 @@ export class DetailsComponent {
     this.housingService.submitApplication(
       this.form.value.firstName || '',
       this.form.value.lastName || '',
-      this.form.value.email || '',
+      this.form.value.email || ''
     )
   }
 }
