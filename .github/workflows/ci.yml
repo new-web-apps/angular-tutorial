@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Node
-        run: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.2.0
       - name: Install package
         run: npm i
       
