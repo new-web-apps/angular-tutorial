@@ -17,4 +17,6 @@ jobs:
         run: npm i
       
       - name: Formatting
-        run: npm run prettier:fix:all
+        run: npm run prettier
+      - name: Linting
+        run: npm run lint
