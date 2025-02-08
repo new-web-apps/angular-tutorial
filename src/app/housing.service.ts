@@ -10,6 +10,7 @@ export class HousingService {
 
   housingLocationList: HousingLocation[] = []
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
   async getAllHousingLocations(): Promise<HousingLocation[]> {
