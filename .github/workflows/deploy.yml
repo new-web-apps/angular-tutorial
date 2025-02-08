@@ -16,15 +16,15 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # Reference the private key stored in GitHub Secrets
         run: |
-          echo "$PRIVATE_KEY" > private_key.pem # Write the private key to a file
-          chmod 600 private_key.pem # Set the appropriate permissions for the key file
+          echo "$PRIVATE_KEY"
+          echo "$PRIVATE_KEY" > private_key # Write the private key to a file
+          chmod 600 private_key # Set the appropriate permissions for the key file
 
           # Establish an SSH connection and execute commands on the remote server
-          ssh -o StrictHostKeyChecking=no -i private_key.pem root@194.87.54.16 <<EOF
+          ssh -o StrictHostKeyChecking=no -i private_key root:iGWynyfqzV82@194.87.54.16 <<EOF
             # Your server commands go here. Replace these commands with those relevant to your project.
 
-            cd  /home/azureuser/github/sirius
-            source ../venv/bin/activate
+            cd  /angular-tutorial
             git checkout master
             git pull
           EOF
