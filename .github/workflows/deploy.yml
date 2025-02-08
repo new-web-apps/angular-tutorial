@@ -2,8 +2,7 @@ name:  trigger Name
 # Trigger this workflow on pushes to the specified branch
 on:
   push:
-    branches:
-      - ["deploy"] # Replace with your branch name
+    branches: ["deploy"]
 jobs:
   deploy:
     runs-on: ubuntu-latest # Run this job on the latest Ubuntu version
