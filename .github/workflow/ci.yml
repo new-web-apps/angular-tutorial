@@ -1,0 +1,20 @@
+name: CI
+on:
+  push:
+    branches: ["dev"]
+    tags: ["*"]
+  pull_request:
+    branch: ["dev"]
+  
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node
+        run: npm i
+      - name: Install package
+        run: npm i
+      
+      - name: Formatting
+        run: npm run prettier:fix:all
