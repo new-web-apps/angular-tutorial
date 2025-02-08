@@ -20,5 +20,15 @@ jobs:
         run: npm run prettier
       - name: Linting
         run: npm run lint
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4.2.0
+      - name: Install package
+        run: npm i
+
       - name: Testing
         run: npm run test
