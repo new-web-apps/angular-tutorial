@@ -24,8 +24,9 @@ jobs:
             # Your server commands go here. Replace these commands with those relevant to your project.
 
             cd  /angular-tutorial
-            git checkout master
+            git checkout origin deploy
             git pull
+            npm i 
           EOF
 
           rm -f private_key.pem # Remove the private key file after use for security
