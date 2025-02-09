@@ -3,7 +3,7 @@ services:
     image: node:18-alpine
     command: sh -c "npm install && npx ng serve --host 0.0.0.0"
     ports:
-      - 8080:8080
+      - 4200:80
     working_dir: /opt/server
     volumes:
       - ./my-app:/opt/server
